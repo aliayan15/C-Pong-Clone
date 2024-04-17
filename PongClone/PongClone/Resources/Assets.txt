@@ -1,0 +1,7 @@
+texture ball Resources/arts/ball.png
+texture left Resources/arts/Left.png
+texture right Resources/arts/Right.png
+texture bar Resources/arts/Bar.png
+texture board Resources/arts/Board.png
+font teko Resources/fonts/Teko.ttf
+font arial Resources/fonts/arial.ttf
