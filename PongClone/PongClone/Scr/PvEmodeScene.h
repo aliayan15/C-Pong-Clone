@@ -14,7 +14,7 @@ private:
 
 	void registerPlayerInputs() override;
 	void render() override;
-	void UpdateScore() override;
+	void updateScore() override;
 	
 private:
 	bool m_isAIchangedMoveDir = false;

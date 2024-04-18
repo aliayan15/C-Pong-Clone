@@ -14,6 +14,7 @@ Racket::Racket(sf::Vector2f startPoint, sf::Texture& texture, float topBorder, f
 	sf::Vector2f playerOrigin = sf::Vector2f(texSýze.x / 2.0f, texSýze.y / 2.0f);
 	m_sprite.setOrigin(playerOrigin);
 	m_halfWidth = playerOrigin.x;
+	m_halfHeight = playerOrigin.y;
 	m_height = texSýze.y;
 	m_topBorder = topBorder + (m_height / 2);
 	m_bottomBorder = bottomBorder - (m_height / 2);
@@ -63,6 +64,11 @@ const sf::Sprite& Racket::getSprite()
 const float Racket::getHalfWidth()
 {
 	return m_halfWidth;
+}
+
+const float Racket::getHalfHeight()
+{
+	return m_halfHeight;
 }
 
 const float Racket::getHeight()

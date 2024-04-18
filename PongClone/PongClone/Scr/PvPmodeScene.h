@@ -19,9 +19,9 @@ protected:
 	void init();
 	virtual void registerPlayerInputs();
 	virtual void render();
-	virtual void UpdateScore();
-	bool isBoxesIntersect(Racket& b);
-	void BallRacketCollisionCheck(const sf::Vector2f& ballPos);
+	virtual void updateScore();
+	sf::Vector2f getIntersect(Racket& b);
+	void ballRacketCollisionCheck();
 	void reStart();
 
 protected:

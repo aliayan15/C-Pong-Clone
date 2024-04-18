@@ -15,6 +15,7 @@ public:
 	const sf::Vector2f& getPositon();
 	const sf::Sprite& getSprite();
 	const float getHalfWidth();
+	const float getHalfHeight();
 	const float getHeight();
 private:
 	void setPosition();
@@ -25,6 +26,7 @@ private:
 	sf::Vector2f m_position;
 	sf::Vector2f m_startPos;
 	float m_halfWidth = 0;
+	float m_halfHeight = 0;
 	float m_height = 0;
 	float m_moveDir = 0;
 };

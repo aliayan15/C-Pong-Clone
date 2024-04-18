@@ -83,7 +83,7 @@ void PvEmodeScene::render()
 	m_game->getWindow().draw(m_ball.getSprite());
 }
 
-void PvEmodeScene::UpdateScore()
+void PvEmodeScene::updateScore()
 {
 	m_tLeftScore.setString(std::to_string(m_leftPlayerScore));
 	m_tRightScore.setString(std::to_string(m_rightPlayerScore));

@@ -3,8 +3,6 @@
 
 #define PLAYERSPACE 10
 #define UPPERSPACE 47
-#define RACKETSPEED 5
-#define RACKETHALFHEIGHT 60
 
 
 using namespace myUtility;
@@ -82,21 +80,20 @@ void PvPmodeScene::update()
 	// ball movement and racket collision
 	m_ball.update(elapsed);
 
-	auto& ballPos = m_ball.getPositon();
-	BallRacketCollisionCheck(ballPos);
+	ballRacketCollisionCheck();
 
 	// out of board and score
 	if (m_ball.getLeftPoint().x < 0)
 	{
 		m_rightPlayerScore++;
-		UpdateScore();
+		updateScore();
 		reStart();
 		return;
 	}
 	if (m_ball.getRightPoint().x > m_windowSize.x)
 	{
 		m_leftPlayerScore++;
-		UpdateScore();
+		updateScore();
 		reStart();
 		return;
 	}
@@ -112,29 +109,35 @@ void PvPmodeScene::update()
 	m_game->getWindow().display();
 }
 
-void PvPmodeScene::BallRacketCollisionCheck(const sf::Vector2f& ballPos)
+void PvPmodeScene::ballRacketCollisionCheck()
 {
-	if (isBoxesIntersect(m_rightRacket))
-	{
-		if (ballPos.x > m_rightRacket.getPositon().x - m_rightRacket.getHalfWidth() + 2) return;
+	auto leftIntersect = getIntersect(m_leftRacket);
+	auto rightIntersect = getIntersect(m_rightRacket);
 
-		m_ball.bounceFromRacket(m_rightRacket.getPositon().y, RACKETHALFHEIGHT);
-		return;
+	if (leftIntersect.x > 0 && leftIntersect.y > 0)
+	{
+		if (leftIntersect.x > m_leftRacket.getHalfWidth()) // the ball passed the racket
+			return;
+		m_ball.bounceFromRacket(m_leftRacket.getPositon().y, m_leftRacket.getHalfHeight());
 	}
-	if (isBoxesIntersect(m_leftRacket))
+	else if (rightIntersect.x > 0 && rightIntersect.y > 0)
 	{
-		if (ballPos.x < m_leftRacket.getPositon().x + m_leftRacket.getHalfWidth() - 2) return;
-
-		m_ball.bounceFromRacket(m_leftRacket.getPositon().y, RACKETHALFHEIGHT);
-		return;
+		if (rightIntersect.x > m_rightRacket.getHalfWidth()) // the ball passed the racket
+			return;
+		m_ball.bounceFromRacket(m_rightRacket.getPositon().y, m_rightRacket.getHalfHeight());
 	}
 }
 
-bool PvPmodeScene::isBoxesIntersect(Racket& b)
+sf::Vector2f PvPmodeScene::getIntersect(Racket& b)
 {
-	auto& bPos = b.getPositon();
-	return (abs(m_ball.getPositon().x - bPos.x) < (m_ball.getHalfWidth() + b.getHalfWidth())) &&
-		(abs(m_ball.getPositon().y - bPos.y) * 2 <= b.getHeight() + 4);
+	auto bPos = b.getPositon();
+	sf::Vector2f delta = sf::Vector2f(std::abs(bPos.x - m_ball.getPositon().x),
+		std::abs(bPos.y - m_ball.getPositon().y));
+	sf::Vector2f intersect;
+	intersect.x = b.getHalfWidth() + m_ball.getHalfWidth() - delta.x;
+	intersect.y = b.getHalfHeight() + m_ball.getHalfWidth() - delta.y;
+
+	return intersect;
 }
 
 void PvPmodeScene::reStart()
@@ -193,7 +196,7 @@ void PvPmodeScene::doAction(const Action& action)
 	}
 }
 
-void PvPmodeScene::UpdateScore()
+void PvPmodeScene::updateScore()
 {
 	m_tLeftScore.setString(std::to_string(m_leftPlayerScore));
 	m_tRightScore.setString(std::to_string(m_rightPlayerScore));
