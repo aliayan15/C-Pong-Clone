@@ -41,37 +41,37 @@ void Ball::reset()
 	m_velocity = ballDir * (m_ballSpeed - 150);
 }
 
-const sf::Vector2f& Ball::getPositon()
+sf::Vector2f Ball::getPositon() const
 {
 	return m_position;
 }
 
-const sf::Vector2f Ball::getTopPoint()
+sf::Vector2f Ball::getTopPoint() const
 {
 	return sf::Vector2f(m_position.x, m_position.y - m_halfWidth);
 }
 
-const sf::Vector2f Ball::getBottomPoint()
+sf::Vector2f Ball::getBottomPoint() const
 {
 	return sf::Vector2f(m_position.x, m_position.y + m_halfWidth);
 }
 
-const sf::Vector2f Ball::getRightPoint()
+sf::Vector2f Ball::getRightPoint() const
 {
 	return sf::Vector2f(m_position.x + m_halfWidth, m_position.y);
 }
 
-const sf::Vector2f Ball::getLeftPoint()
+sf::Vector2f Ball::getLeftPoint() const
 {
 	return sf::Vector2f(m_position.x - m_halfWidth, m_position.y);
 }
 
-const sf::Sprite& Ball::getSprite()
+const sf::Sprite& Ball::getSprite() const
 {
 	return m_sprite;
 }
 
-const float Ball::getHalfWidth()
+float Ball::getHalfWidth() const
 {
 	return m_halfWidth;
 }

@@ -4,9 +4,6 @@
 #define PLAYERSPACE 10
 #define UPPERSPACE 47
 
-
-using namespace myUtility;
-
 PvPmodeScene::PvPmodeScene(GameEngine* game) :SceneBase(game)
 {
 	init();
@@ -128,7 +125,7 @@ void PvPmodeScene::ballRacketCollisionCheck()
 	}
 }
 
-sf::Vector2f PvPmodeScene::getIntersect(Racket& b)
+sf::Vector2f PvPmodeScene::getIntersect(const Racket& b)
 {
 	auto bPos = b.getPositon();
 	sf::Vector2f delta = sf::Vector2f(std::abs(bPos.x - m_ball.getPositon().x),

@@ -5,20 +5,21 @@ class Racket
 {
 public:
 	Racket();
-	Racket(sf::Vector2f startPoint, sf::Texture& texture,float topBorder,float bottomBorder);
-	
+	Racket(sf::Vector2f startPoint, sf::Texture& texture, float topBorder, float bottomBorder);
+
 	void reset();
 	void update(sf::Time t);
 	void addMoveDirection(float md);
 	void setMoveDirection(float md);
 
-	const sf::Vector2f& getPositon();
-	const sf::Sprite& getSprite();
-	const float getHalfWidth();
-	const float getHalfHeight();
-	const float getHeight();
+	const sf::Sprite& getSprite() const;
+	sf::Vector2f getPositon() const;
+	float getHalfWidth() const;
+	float getHalfHeight() const;
+	float getHeight() const;
 private:
 	void setPosition();
+
 private:
 	float m_topBorder = 0;
 	float m_bottomBorder = 0;

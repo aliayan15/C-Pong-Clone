@@ -9,22 +9,23 @@ class Ball
 public:
 	Ball();
 	Ball(sf::Vector2f startPoint, sf::Texture& texture);
-	
+
 	void update(sf::Time t);
 	void reset();
 	void bounceTopAndBottom();
 	void bounceFromRacket(float racketY, float racketHalfHeight);
 
-	const sf::Vector2f& getPositon();
-	const sf::Vector2f getTopPoint();
-	const sf::Vector2f getBottomPoint();
-	const sf::Vector2f getRightPoint();
-	const sf::Vector2f getLeftPoint();
-	const sf::Sprite& getSprite();
-	const float getHalfWidth();
-	
+	const sf::Sprite& getSprite() const;
+	sf::Vector2f getPositon() const;
+	sf::Vector2f getTopPoint() const;
+	sf::Vector2f getBottomPoint() const;
+	sf::Vector2f getRightPoint() const;
+	sf::Vector2f getLeftPoint() const;
+	float getHalfWidth() const;
+
 private:
 	void setPosition();
+
 private:
 	sf::Sprite m_sprite;
 	sf::Vector2f m_position;

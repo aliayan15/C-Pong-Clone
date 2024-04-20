@@ -51,27 +51,27 @@ void Racket::setMoveDirection(float md)
 	m_moveDir = md;
 }
 
-const sf::Vector2f& Racket::getPositon()
+sf::Vector2f Racket::getPositon() const
 {
 	return m_position;
 }
 
-const sf::Sprite& Racket::getSprite()
+const sf::Sprite& Racket::getSprite() const
 {
 	return m_sprite;
 }
 
-const float Racket::getHalfWidth()
+float Racket::getHalfWidth() const
 {
 	return m_halfWidth;
 }
 
-const float Racket::getHalfHeight()
+float Racket::getHalfHeight() const
 {
 	return m_halfHeight;
 }
 
-const float Racket::getHeight()
+float Racket::getHeight() const
 {
 	return m_height;
 }

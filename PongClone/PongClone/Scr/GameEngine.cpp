@@ -108,17 +108,17 @@ AssetLoader& GameEngine::getAssets()
 	return m_assets;
 }
 
-const unsigned GameEngine::windowHeight() const
+unsigned GameEngine::windowHeight() const
 {
 	return m_windowHeight;
 }
 
-const unsigned GameEngine::windowWidth() const
+unsigned GameEngine::windowWidth() const
 {
 	return m_windowWidth;
 }
 
-const int GameEngine::getFps() const
+int GameEngine::getFps() const
 {
 	return m_fps;
 }

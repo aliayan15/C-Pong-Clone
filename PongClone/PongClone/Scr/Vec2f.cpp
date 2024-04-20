@@ -13,19 +13,19 @@ namespace myUtility
 		y += v.y;
 		return *this;
 	}
-	Vec2f& Vec2f::Subtract(const Vec2f v)
+	Vec2f& Vec2f::Subtract(Vec2f v)
 	{
 		x -= v.x;
 		y -= v.y;
 		return *this;
 	}
-	Vec2f& Vec2f::Multiply(const Vec2f v)
+	Vec2f& Vec2f::Multiply(Vec2f v)
 	{
 		x *= v.x;
 		y *= v.y;
 		return *this;
 	}
-	Vec2f& Vec2f::Scale(const float v)
+	Vec2f& Vec2f::Scale(float v)
 	{
 		x *= v;
 		y *= v;
@@ -56,7 +56,7 @@ namespace myUtility
 	{
 		return Multiply(v);
 	}
-	Vec2f Vec2f::operator * (const float v)
+	Vec2f Vec2f::operator * (float v)
 	{
 		return Vec2f(x * v, y * v);
 	}
@@ -81,7 +81,7 @@ namespace myUtility
 	{
 		return sqrtf((x * x) + (y * y));
 	}
-	float Vec2f::Distance(const Vec2f v)
+	float Vec2f::Distance( Vec2f v)
 	{
 		return (*this - v).length();
 	}

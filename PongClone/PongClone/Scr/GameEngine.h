@@ -21,9 +21,9 @@ public:
 	void changeScene(const SceneName& sceneName);
 	sf::RenderWindow& getWindow();
 	AssetLoader& getAssets();
-	const unsigned windowHeight() const;
-	const unsigned windowWidth() const;
-	const int getFps() const;
+	unsigned windowHeight() const;
+	unsigned windowWidth() const;
+	int getFps() const;
 
 private:
 	void GameInit();

@@ -20,7 +20,7 @@ protected:
 	virtual void registerPlayerInputs();
 	virtual void render();
 	virtual void updateScore();
-	sf::Vector2f getIntersect(Racket& b);
+	sf::Vector2f getIntersect(const Racket& b);
 	void ballRacketCollisionCheck();
 	void reStart();
 
