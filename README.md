@@ -5,7 +5,7 @@ C++ classic Pong game clone with some extra features using SFML. There are 1 pla
 This project is using Premake build system. Currently only supports Windows.
 
 ```
-git clone --recursive https://github.com/TheCherno/OpenGL
+git clone --recursive https://github.com/aliayan15/CPP-Pong-Clone.git
 ```
 To build the project; open command prompt in `PongClone/` and run `build.bat`
 ```
